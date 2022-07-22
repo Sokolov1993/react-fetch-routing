@@ -1,0 +1,33 @@
+.Home {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../assets/images/RickAndMortyBackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  a {
+    max-width: 200px;
+    width: 100%;
+
+    button {
+      background-color: greenyellow;
+      border-color: transparent;
+      height: 50px;
+      width: 100%;
+      margin-bottom: 50px;
+      box-shadow: 2px 5px 10px rgb(15, 228, 15);
+      transition: ease-in-out box-shadow 0.5s, ease-in-out transform 0.5s;
+      font-size: large;
+
+      &:hover {
+        cursor: pointer;
+        transform: translateY(-1px);
+        box-shadow: 2px 10px 15px rgb(15, 228, 15);
+      }
+    }
+  }
+}
