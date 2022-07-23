@@ -1,0 +1,24 @@
+.Header {
+  padding: 0px 10px;
+  max-width: 100vw;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  background-color: rgb(87, 87, 87);
+
+  .Wrapper {
+    display: inline-flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    height: 60px;
+  }
+
+  .NavBar {
+    margin-left: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+  }
+}

@@ -3,12 +3,11 @@ import { API_URL } from '../../constants';
 import { Link } from 'react-router-dom';
 import Character from '../../components/Character/Character';
 import ChractersStyles from './Characters.module.scss';
+import Header from '../../components/Header/Header';
 
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-
-  let isDisabled = false;
 
   const fetchData = () => {
     fetch(`${API_URL}/?page=${currentPage.toString()}`)
@@ -16,7 +15,6 @@ const Characters = () => {
       .then((response) => setCharacters(response.results));
   };
 
-  useEffect(fetchData, []);
   useEffect(fetchData, [currentPage]);
 
   const toTheNextPage = () => {
@@ -27,27 +25,32 @@ const Characters = () => {
     setCurrentPage((prevState) => prevState - 1);
   };
 
-  if (currentPage === 1) {
-    isDisabled = true;
-  }
-
   return (
-    <div className={ChractersStyles.Characters}>
-      {characters.map((character) => (
-        <Link to={`/characters/${character.id}`} key={character.id}>
-          <Character
-            gender={character.gender}
-            name={character.name}
-            image={character.image}
-            status={character.status}
-          />
-        </Link>
-      ))}
-
-      <button disabled={isDisabled} onClick={toThePrevPage}>
-        PREV
-      </button>
-      <button onClick={toTheNextPage}>NEXT</button>
+    <div>
+      <Header renderFilteredData={setCharacters} />
+      <main className={ChractersStyles.Main}>
+        <section className={ChractersStyles.Characters}>
+          {characters.map((character) => (
+            <Link to={`/characters/${character.id}`} key={character.id}>
+              <Character
+                gender={character.gender}
+                name={character.name}
+                image={character.image}
+                status={character.status}
+              />
+            </Link>
+          ))}
+          <div className={ChractersStyles.Buttons}>
+            <button
+              disabled={currentPage === 1 && true}
+              onClick={toThePrevPage}
+            >
+              PREV
+            </button>
+            <button onClick={toTheNextPage}>NEXT</button>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };

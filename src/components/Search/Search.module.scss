@@ -1,0 +1,52 @@
+.Search {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 550px;
+  width: 100%;
+  gap: 10px;
+
+  input {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 3px;
+    height: 30px;
+    width: 70%;
+    border: 1px solid greenyellow;
+    box-shadow: 2px 5px 12px rgb(15, 228, 15);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    background-color: greenyellow;
+    border-color: transparent;
+    height: 30px;
+    width: 30%;
+    box-shadow: 2px 5px 10px rgb(15, 228, 15);
+    transition: ease-in-out box-shadow 0.5s, ease-in-out transform 0.5s;
+    font-size: large;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-1px);
+      box-shadow: 2px 10px 15px rgb(15, 228, 15);
+    }
+  }
+
+  .Hint {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 80%;
+    width: 50%;
+    height: 30px;
+    background-color: aliceblue;
+    border: 1px solid greenyellow;
+    color: rgb(131, 131, 131);
+    box-shadow: 2px 10px 15px rgb(15, 228, 15);
+  }
+}
